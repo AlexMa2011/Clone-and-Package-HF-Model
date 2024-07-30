@@ -46,4 +46,4 @@ jobs:
       with:
         name: model-tar
         path: model.tar.gz
-​⬤
+
