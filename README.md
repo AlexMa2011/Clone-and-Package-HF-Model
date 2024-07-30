@@ -13,15 +13,14 @@ To use this action, you need to fork this repository or add a workflow file to 
 ### workflow
 
 ```yaml  
-name: Clone and Package Model
+ name: Clone and Package Model
 
 on:
   workflow_dispatch:
     inputs:
       git_url:
         description: 'Git URL to clone'
-        required: true
-        default: 'https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-16Plus'
+        required: true 
 
 jobs:
   build:
@@ -36,14 +35,13 @@ jobs:
         sudo apt-get install git-lfs
         git lfs install
 
-    - name: Clone Hugging Face model
+    - name: Clone Hugging Face model 
       run: |
-        git clone ${{ github.event.inputs.git_url }} model
-        tar -czvf model.tar.gz model
+        git clone ${{ github.event.inputs.git_url }} model  
+        tar -czvf model.tar.gz model           
 
     - name: Upload tar file as artifact
       uses: actions/upload-artifact@v2
       with:
         name: model-tar
-        path: model.tar.gz
-
+        path: model.tar.gz 
